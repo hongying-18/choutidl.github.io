@@ -13,7 +13,10 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 12px;
-    background-color: #ecf0f3;
+    /* background-color: #ecf0f3; */
+    background-image: url(img/780.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
     color: #a0a5a8;
 }
 
@@ -31,8 +34,8 @@ body {
     min-height: 600px;
     height: 600px;
     padding: 25px;
-    background-color: #ecf0f3;
-    box-shadow: 10px 10px 10px #d1d9e6, -10px -10px 10px #f9f9f9;
+    background-color: rgba(232, 234, 237, .5);
+    /* box-shadow: 10px 10px 10px #d1d9e6, -10px -10px 10px #f9f9f9; */
     border-radius: 12px;
     overflow: hidden;
 }
@@ -143,6 +146,27 @@ body {
     transition: 0.25s ease;
     border-radius: 8px;
     box-shadow: inset 2px 2px 4px #d1d9e6, inset -2px -2px 4px #f9f9f9;
+}
+
+.v_code {
+    width: 200px;
+}
+
+.v_code_b {
+    width: 110px;
+    height: 40px;
+    margin-left: 35px;
+    padding-left: 0;
+    letter-spacing: 0.15px;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    box-shadow: 10px 10px 10px #d1d9e6, -10px -10px 10px #f9f9f9;
+}
+
+.v_code_b:active {
+    transform: scale(0.8);
+    transition: 0.25s;
 }
 
 /* 
@@ -288,20 +312,20 @@ body {
 
 .switch_circle {
     position: absolute;
+    left: -21%;
     width: 500px;
     height: 500px;
     border-radius: 50%;
     background-color: #ecf0f3;
-    box-shadow: inset 8px 8px 12px #b8bec7, inset -8px -8px 12px #fff;
-    bottom: -60%;
-    left: -60%;
-    transition: 1.25s;
+    transition: 1.25s
 }
 
 .switch_circle-t {
-    top: -30%;
-    left: 60%;
+    top: 10%;
+    left: 40%;
     width: 300px;
+    /* box-shadow: inset 8px 8px 12px #b8bec7, inset -8px -8px 12px #fff; */
+    background-color: #2e7dba;
     height: 300px;
 }
 
@@ -365,8 +389,15 @@ body {
     获得焦点的时候的样式
 */
 
+.is-txr1 {
+    top: -2%;
+    left: calc(100% - 430px);
+    transition: 1.25s;
+    transform-origin: left;
+}
 
 .is-txr {
+    top: 0;
     left: calc(100% - 400px);
     transition: 1.25s;
     transform-origin: left;
