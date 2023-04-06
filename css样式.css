@@ -328,13 +328,10 @@ body {
     width: 300px;
     height: 300px;
     box-shadow: inset 8px 8px 12px #b8bec7, inset -8px -8px 12px #fff;
-    /* background-color: #2e7dba; */
     background-image: url(img/780.jpg);
     background-size: 100vw 100vh;
-    /* background-position: center; */
-
     background-repeat: no-repeat;
-    /* border-radius: 50%; */
+    border-radius: 50%;
     transition: 1.25s
 }
 
