@@ -15,7 +15,11 @@ body {
     font-size: 12px;
     /* background-color: #ecf0f3; */
     background-image: url(img/780.jpg);
-    background-size: 100% 100%;
+    /* background-size: 100% 100%; */
+    background-size: 100vw 100vh;
+    /* background-size: cover; */
+    /* background-size: 100% auto; */
+    background-position: center;
     background-repeat: no-repeat;
     color: #a0a5a8;
 }
@@ -30,8 +34,8 @@ body {
 .shell {
     position: relative;
     width: 1000px;
-    min-width: 1000px;
-    min-height: 600px;
+    /* min-width: 1000px; */
+    /* min-height: 600px; */
     height: 600px;
     padding: 25px;
     background-color: rgba(232, 234, 237, .5);
@@ -54,7 +58,7 @@ body {
 
 
 /* 设置响应式 */
-@media (max-width: 1200px) {
+/* @media (max-width: 1200px) {
     .shell {
         transform: scale(0.7);
     }
@@ -76,7 +80,7 @@ body {
     .shell {
         transform: scale(0.4);
     }
-}
+} */
 
 .container {
     display: flex;
@@ -310,23 +314,28 @@ body {
 
 
 
-.switch_circle {
-    position: absolute;
+/* .switch_circle {
     left: -21%;
     width: 500px;
     height: 500px;
-    border-radius: 50%;
     background-color: #ecf0f3;
-    transition: 1.25s
-}
+} */
 
 .switch_circle-t {
+    position: absolute;
     top: 10%;
     left: 40%;
     width: 300px;
-    /* box-shadow: inset 8px 8px 12px #b8bec7, inset -8px -8px 12px #fff; */
-    background-color: #2e7dba;
     height: 300px;
+    box-shadow: inset 8px 8px 12px #b8bec7, inset -8px -8px 12px #fff;
+    /* background-color: #2e7dba; */
+    background-image: url(img/780.jpg);
+    background-size: 100vw 100vh;
+    /* background-position: center; */
+
+    background-repeat: no-repeat;
+    /* border-radius: 50%; */
+    transition: 1.25s
 }
 
 /* 

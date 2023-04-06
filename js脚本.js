@@ -1,5 +1,5 @@
 
-window.addEventListener('load', function () {
+window.addEventListener('DOMContentLoaded', function () {
     // console.log(111)
     // 获取总副框
     let switchCtn = document.querySelector("#switch-cnt");
@@ -16,15 +16,33 @@ window.addEventListener('load', function () {
     let bContainer = document.querySelector("#b-container");
     // 获取主框登录和注册按钮
     let allButtons = document.querySelectorAll(".submit");
+    // 获取 获取邮箱验证码按钮
+    let vCodeB = document.querySelector('.v_code_b');
+    // 获取浏览器高度宽度
+    let zong = document.querySelector('.abody');
+    // 获取小圈
+    let xiaoQvan = document.querySelector('.switch_circle-t')
+    var xiaoQvanLeft = xiaoQvan.offsetLeft;
+    var xiaoQvanTop = xiaoQvan.offsetTop;
+    console.log(xiaoQvanTop)
+    console.log(xiaoQvanLeft)
 
-    let vCodeB = this.document.querySelector('.v_code_b');
+    
+    // 获取body
+
+
+
     // 阻止浏览器的默认行为 这里是取消鼠标点击连接的默认事件
     let getButtons = (e) => {
+        console.log('你正在点击主框')
         e.preventDefault()
-
-
     }
+
+
     let changeForm = (e) => {
+        console.log(xiaoQvanLeft)
+        console.log(xiaoQvanTop)
+        console.log('你正在点击副框')
         // 修改类名
         switchCtn.classList.add("is-gx");
         // 定时器
@@ -35,7 +53,6 @@ window.addEventListener('load', function () {
         switchCtn.classList.toggle("is-txr");
         switchCircle[0].classList.toggle("is-txr1");
         switchCircle[1].classList.toggle("is-txr1");
-
         switchC1.classList.toggle("is-hidden");
         switchC2.classList.toggle("is-hidden");
         aContainer.classList.toggle("is-txl");
@@ -44,9 +61,11 @@ window.addEventListener('load', function () {
     }
     let youxiang = (e) => {
         e.preventDefault()
-        console.log(222)
-        
+        console.log('你正在点击邮箱')
     }
+    // 将浏览器宽度高度赋值给背景图片
+    // zong.style.backgroundSize('webChuangKou_w webChuangKou_h');
+    // xiaoQvan.style.backgroundSize('webChuangKou_w webChuangKou_h');
     // 点击切换 点击第一个的时候才会切换 其他的不会切换
     let shell = (e) => {
         // 主框两个登录按钮
