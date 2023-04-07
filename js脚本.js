@@ -33,8 +33,8 @@ window.addEventListener('DOMContentLoaded', function () {
     var ZFKTop = ashell.offsetTop;
     console.log(ZFKTop);
     console.log(ZFKLeft);
-    var w0 = -(ZFKLeft + xiaoQvanLeft);
-    var h0 = -(ZFKTop + xiaoQvanLeft);
+    var w0 = -(ZFKLeft + xiaoQvanLeft + 50 - 50);
+    var h0 = -(ZFKTop + xiaoQvanLeft + 50 - 150);
     // xiaoQvan.style.backgroundPosition = ('-100px -100px');
 
     xiaoQvan.style.backgroundPosition = w0 + 'px' + ' ' + h0 + 'px';
@@ -43,43 +43,37 @@ window.addEventListener('DOMContentLoaded', function () {
     let getButtons = (e) => {
         console.log('你正在点击主框')
         e.preventDefault()
-        // 发送AJAX POST请求
-        // 1. 创建AJAX核心对象
-        var xhr = new XMLHttpRequest();
-        // 2. 注册回调函数
-        xhr.onreadystatechange = function () {
-            if (this.readyState == 4) {
-                if (this.status == 200) {
-                    document.getElementById("mydiv").innerHTML = this.responseText
-                } else {
-                    alert(this.status)
-                }
-            }
-        }
-        // 3. 开启通道
-        xhr.open("POST", "http://localhost:8080/user/register", true)
-
-        // 4. 发送请求
-        // 怎么模拟AJAX提交form表单呢？设置请求头的内容类型(这行代码非常关键，是模拟form表单提交的关键代码。)
-        // 设置请求头的内容类型时，必须在open之后。
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
-
-        // 放到send()这个函数的小括号当中的数据，会自动在请求体当中提交数据。
-        // 使用JS代码获取用户填写的用户名和密码
         var username = document.getElementById("username").value;
         var password = document.getElementById("password").value;
         var userAccount = document.getElementById("userAccount").value;
         var userEmail = document.getElementById("userEmail").value;
         var verificationCode = document.getElementById("verificationCode").value;
         this.alert(userAccount)
-        //xhr.send("注意格式：放在这里的数据就是在请求体当中提交的，格式不能随便来，还是需要遵循HTTP的协议：name=value&name=value&name=value")
-        xhr.send("userAccount=" + userAccount + "&password=" + password + "&userName=" + username + "&userEmail=" + userEmail + "&verificationCode=" + verificationCode)
+        $.ajax(
+            {
+                url: "http://localhost:8080/user/register",
+                type: "get",
+                data: {
+                    "userAccount": userAccount,
+                    "password": password,
+                    "userName": username,
+                    "userEmail": userEmail,
+                    "verificationCode": verificationCode
+                },
+                dataType: json,
+                success: function (resp) {
+                    //code: 更新dom对象
+                },
+                error: function () { alert("请求错误") },
+            }
+        )
+
 
     }
 
-
+    var n = 1;
     let changeForm = (e) => {
-        let n = 0;
+
         console.log(xiaoQvanLeft)
         console.log(xiaoQvanTop)
         console.log(ZFKTop);
@@ -101,11 +95,12 @@ window.addEventListener('DOMContentLoaded', function () {
         aContainer.classList.toggle("is-txl");
         bContainer.classList.toggle("is-txl");
         bContainer.classList.toggle("is-z");
-        if (n) {
-            xiaoQvan.style.backgroundSize('-100px -100px');
+        if (n === 0) {
+            xiaoQvan.style.backgroundPosition = w0 + 'px' + ' ' + h0 + 'px';
+            // xiaoQvan.style.backgroundSize('-100px -100px');
             n = 1;
         } else {
-            xiaoQvan.style.backgroundSize('w1 h1');
+            xiaoQvan.style.backgroundPosition = (w0 - 410) + 'px' + ' ' + (h0 + 75) + 'px';
             n = 0;
         }
     }
