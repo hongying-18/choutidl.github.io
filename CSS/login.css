@@ -1,0 +1,605 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* 字体无法选中 */
+    user-select: none;
+}
+
+/* 
+ ██                    ██         
+░██                   ░██  ██   ██
+░██       ██████      ░██ ░░██ ██ 
+░██████  ██░░░░██  ██████  ░░███  
+░██░░░██░██   ░██ ██░░░██   ░██   
+░██  ░██░██   ░██░██  ░██   ██    
+░██████ ░░██████ ░░██████  ██      */
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    /* background-color: #ecf0f3; */
+    background-image: url(../img/login_img/首页背景.gif);
+    background-size: 100vw 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #a0a5a8;
+}
+
+/* 
+    页面整体盒子铺满全屏
+    盒子里的所有子元素再主轴上居中排列
+    字体大小12px
+    背景颜色 字体颜色
+    */
+/*   #      ##    
+     ##   ##     
+   #  #  ##  #   
+   ############  
+   ##       ##   
+   ##       ##   
+   ##       ##   
+   ###########   
+   #        #    
+       #         
+   # #  ##  #    
+  ## ##  ##  #   
+  ## ##  # # ##  
+ ### ##    #  ## 
+  #  ######## #  
+      ######      */
+.shell {
+    position: relative;
+    width: 1000px;
+    min-width: 1000px;
+    min-height: 600px;
+    height: 600px;
+    padding: 25px;
+    background-color: rgba(232, 234, 237, .5);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* 
+    这个页面的整体
+    宽度1000px 高度600px
+    最小宽度和高度是为了窗口过小的时候变形
+    相对定位
+    内边距25px
+    背景颜色
+    盒子阴影 也就是突起来的那一块
+    超出内容的隐藏 防止盒子塌陷
+    */
+
+
+/* 设置响应式 */
+/* @media (max-width: 3000px) {
+    .switch_circle-t {
+        background-image: url(img/780.jpg);
+    }
+}
+
+@media (max-width: 1200px) {
+    .switch_circle-t {
+        background-color: #ecf0f3;
+    }
+}
+
+@media (max-width: 1000px) {
+    .switch_circle-t {
+        background-color: #ecf0f3;
+    }
+}
+
+@media (max-width: 800px) {
+    .switch_circle-t {
+        background-color: #ecf0f3;
+    }
+}
+
+@media (max-width: 600px) {
+    .switch_circle-t {
+        background-color: #ecf0f3;
+    }
+} */
+
+/* 
+  #     ##          #   # #   #   
+   #     ###        ##### ######  
+   ##     #  #      ## ## ## ##   
+   ##  ########     ## ## ## ##   
+ #        ##        ## ## ## ##   
+  #  #    ##        ## ## ## ##   
+  ## #    ##        ## ## ## ##   
+  # #     ##      ############### 
+    #   ######      ## ## ## ##   
+   ##     ##        ## ## ## ##   
+ # #      ##        ## ## ## ##   
+  ##      ##        ## ## ## ##   
+  ##      ##        ## ## ## ##   
+  ###     ##  #     ## ## ## ##   
+  ### ##########    # ### # ###   
+   #               #   # #   #       
+*/
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    width: 600px;
+    height: 100%;
+    padding: 25px;
+    background-color: #ecf0f3;
+    /* background-color: rgba(232, 234, 237, .5); */
+    transition: 1.25s;
+}
+
+/* 
+    登录或者注册的界面 父
+    弹性定位 让盒子的子元素居中显示 再纵轴上居中显示
+    绝对定位
+    背景颜色
+    动画延时
+*/
+
+
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+/* 
+    登录或者注册界面 子
+    弹性定位 与上着相同 并且让元素从上往下垂直排列
+    宽度高度跟随父盒子
+*/
+
+
+
+/* .iconfont {
+    margin: 0 5px;
+    border: rgba(0, 0, 0, 0.5) 2px solid;
+    border-radius: 50%;
+    font-size: 25px;
+    padding: 3px;
+    opacity: 0.5;
+    transition: 0.1s;
+}
+
+.iconfont:hover {
+    opacity: 1;
+    transition: 0.15s;
+    cursor: pointer;
+} */
+/* 
+      ##                 ##          #   #      #  
+       ###               ##          ##  ######### 
+        #    #           ##          ##  ##        
+  #############          ##    #     ##  ##    #   
+    #     ##       ##############  ##############  
+     #    ##            ####         ##  ##  ##    
+     #    ##           ######       ###  ##  ##    
+      #  ##            #### #       #### ########  
+      ## ##           ## ## ##      #######  ##    
+       ###            #  ##  #     # ## ###  ##    
+       ###           ##  ##  ##    # ##  ##  ## #  
+      ## ##          #   ##   ##     ##  ######### 
+     ##   ##        #  ###### ###    ##  ##        
+    ##     ###     #     ##    #     ##  ##     #  
+   ##       ####         ##          ##  ######### 
+ ##           #          ##          #   #         
+*/
+.form_input {
+    width: 350px;
+    height: 40px;
+    margin: 4px 0;
+    padding-left: 25px;
+    font-size: 13px;
+    letter-spacing: 0.15px;
+    border: none;
+    outline: none;
+    background-color: #ecf0f3;
+    transition: 0.25s ease;
+    border-radius: 8px;
+    box-shadow: inset 2px 2px 4px #d1d9e6, inset -2px -2px 4px #f9f9f9;
+}
+
+.v_code {
+    width: 200px;
+}
+
+.v_code_b {
+    width: 110px;
+    height: 40px;
+    margin-left: 35px;
+    padding-left: 0;
+    letter-spacing: 0.15px;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    box-shadow: 10px 10px 10px #d1d9e6, -10px -10px 10px #f9f9f9;
+}
+
+.v_code_b:active {
+    transform: scale(0.8);
+    transition: 0.25s;
+}
+
+/* 
+    输入框
+    设置宽度高度
+    外边框 内边距
+    字体大小 13 字间距0.15
+    没有外边框
+    输入框获得焦点的时候去除轮廓线
+    背景颜色
+    动画时间
+    圆角边框
+    浮动的盒子阴影样式
+*/
+
+.form_input:focus {
+    box-shadow: inset 4px 4px 4px #d1d9e6, inset -4px -4px 4px #f9f9f9;
+}
+
+/* 
+    获得焦点时更改盒子阴影效果
+*/
+
+
+
+/* .form_span {
+    margin-top: 30px;
+    margin-bottom: 12px;
+} */
+
+/* 
+       #   #                 #    
+  ######## ## #     ###########   
+  #   ## ###  ##            ##    
+   # ##   ## ##      #########    
+   ####   ###               ##    
+    ##     ##               ## #  
+   ###########    ############### 
+  ## #      ####        ##    #   
+ #   ######## #     ######  ####  
+     ##    ##          ### ###    
+     ##    ##         ######      
+     ########        ## ## ##     
+     #     #        ##  ##  ###   
+     ###  ###      ##   ##   #### 
+      #  ##  #    #   ####    ##  
+   ############        ##   
+*/
+.form_link_f {
+    margin: 25px;
+}
+
+.form_link {
+    color: #181818;
+    font-size: 15px;
+    margin: 50px;
+    border-bottom: 1px solid #a0a5a8;
+    line-height: 2;
+}
+
+/* 
+    "忘记密码"的样式
+*/
+
+
+.title {
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 3;
+    color: #181818;
+    letter-spacing: 10px;
+}
+
+/* 
+    设置大标题的样式
+*/
+
+.description {
+    font-size: 14px;
+    letter-spacing: 0.25px;
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* 
+    大标题下面的小字的样式
+*/
+
+
+.button {
+    width: 180px;
+    height: 50px;
+    border-radius: 25px;
+    margin-top: 50px;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1.15px;
+    background-color: #4B70E2;
+    color: #f9f9f9;
+    box-shadow: 8px 8px 16px #d1d9e6, -8px -8px 16px #f9f9f9;
+    border: none;
+    outline: none;
+}
+
+/* 
+    登录注册按钮的样式
+    设置宽度 高度 
+    圆角边框 25
+    上边框
+    字体粗细 大小 字间距
+    背景颜色 字体颜色
+    盒子阴影
+    无边框 聚焦之后无边框
+*/
+
+
+
+.a-container {
+    z-index: 100;
+    left: calc(100% - 600px);
+}
+
+.b-container {
+    left: calc(100% - 600px);
+    z-index: 0;
+}
+
+/* 
+    a b 分别表示注册和登录
+    以注册为默认
+    左侧距离
+*/
+
+/* 
+        #    #      #   #      #  
+ #########   ##     ##  ######### 
+             ##     ##  ##        
+  ######     ##     ##  ##    #   
+  ##  ##  #  ##   ##############  
+  ##  ##  ## ##     ##  ##  ##    
+  ######  ## ##    ###  ##  ##    
+ #      # ## ##    #### ########  
+ ########### ##    #######  ##    
+ ## ## ## ## ##   # ## ###  ##    
+ ## ## ## ## ##   # ##  ##  ## #  
+ ########    ##     ##  ######### 
+ ## ## ##    ##     ##  ##        
+ ## ## ##  # ##     ##  ##     #  
+ ########   ###     ##  ######### 
+ #     #     #      #   #       
+*/
+.switch {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 400px;
+    padding: 50px;
+    z-index: 200;
+    transition: 1.25s;
+    background-color: #ecf0f3;
+    /* background-color: rgba(232, 234, 237, .5); */
+
+    overflow: hidden;
+    box-shadow: 4px 4px 10px #d1d9e6, -4px -4px 10px #d1d9e6;
+}
+
+/* 
+    副框
+    弹性定位 绝对香味 
+    高度宽度 内边距 z轴高度
+    动画时间
+    防止盒子塌陷 多余的剪切掉
+    盒子阴影
+*/
+
+
+
+/* .switch_circle {
+    left: -21%;
+    width: 500px;
+    height: 500px;
+    background-color: #ecf0f3;
+} */
+
+.switch_circle-t {
+    position: absolute;
+    top: 5%;
+    left: 40%;
+    width: 300px;
+    height: 300px;
+    box-shadow: inset 8px 8px 12px #b8bec7, inset -8px -8px 12px #fff;
+    background-image: url(../img/login_img/首页背景.gif);
+    background-size: 100vw 100vh;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    /* opacity: .2; */
+    transition: 1.25s
+}
+
+/* 
+  #           #    #           #  
+  ##############   ############## 
+  ##  #   #  ##    #### #  ## ##  
+  ##  ###### ##    ## # ## #  ##  
+  ##  ## ##  ##    ########## ##  
+  ##  #####  ##    ##   ##  # ##  
+  ## #     # ##    #############  
+  ## ##########    ##  ##  #  ##  
+  ## ## # ## ##    ## ##########  
+  ## ## # ## ##    ### ## ## ###  
+  ## #  # #  ##    ##  ## #   ##  
+  ##   ###   ##    ##  ##   # ##  
+  ##  ## ######    ##  ###### ##  
+  ####     # ##    ##   ##### ##  
+  #############    #############  
+  #          #     #          #   
+*/
+
+.switch_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    width: 400px;
+    padding: 50px 55px;
+    padding-bottom: 0;
+    transition: 1.25s;
+}
+
+/* 
+    副框
+    弹性定位
+    绝对定位
+    宽度 内边距
+    动画时间
+*/
+
+
+
+.switch_button {
+    cursor: pointer;
+}
+
+/* 
+    副框 登录 和注册 按钮
+    鼠标放在上面时 会有小手的形状
+*/
+
+.switch_button:hover,
+.submit:hover {
+    box-shadow: 6px 6px 10px #d1d9e6, -6px -6px 10px #f9f9f9;
+    transform: scale(0.985);
+    transition: 0.25s;
+}
+
+/* 
+    鼠标放在按钮上之后 会有微缩的样式
+*/
+
+.switch_button:active,
+.switch_button:focus {
+    box-shadow: 2px 2px 6px #d1d9e6, -2px -2px 6px #f9f9f9;
+    transform: scale(0.97);
+    transition: 0.25s;
+}
+
+/* 
+    被选择的连接
+    获得焦点的时候的样式
+*/
+/* 
+    ██        
+   ░░         
+    ██  ██████
+   ░██ ██░░░░ 
+   ░██░░█████ 
+ ██░██ ░░░░░██
+░░███  ██████ 
+ ░░░  ░░░░░░  
+   #      #        #  ##       #     #   #     #            # #     
+   ##  #  ##  #    ## ## #     ##    ##   ##  ###           ## #    
+   ## ##########   ########    ##    ##    # ##             ## ##   
+   ## ## # #  ##   #  ##    #  ##    ##  ########           ## #    
+ ######  ## # #   #   ##  # ## ##  ######   ##       #############  
+   ##   ##  ##    ############ ##    ##     ## #            ##      
+   ##  ##    ###      ##    ## ##   #### ########         # ##      
+   ####       #    #  ##  # ## ##   ####    ##       #########      
+   ### ########    ########### ##   ### #   ##         ##   ##      
+  ###     ##       ## ## ## ## ##  # ##     ##  #      ##    ##     
+ ####     ##       ## ## ## ## ##  # ## ##########     ##    ##     
+ # ##     ##       ## ## ## #  ##    ##     ##         ##  #  ##    
+   ##     ##       ## ## ##    ##    ##     ##         ####   ##  # 
+   ##     ##  #    ## #####    ##    ##     ##      #####      ## # 
+  ### ##########   #  ## #   ####    ##     ##       #          ### 
+   #                  ##       #     #      ##                   ## 
+*/
+.is-txr1 {
+    top: -2%;
+    left: calc(100% - 430px);
+    transition: 1.25s;
+    transform-origin: left;
+}
+
+.is-txr {
+    top: 0;
+    left: calc(100% - 400px);
+    transition: 1.25s;
+    transform-origin: left;
+}
+
+.is-txl {
+    left: 0;
+    transition: 1.25s;
+    transform-origin: right;
+}
+
+.is-z {
+    z-index: 200;
+    transition: 1.25s;
+}
+
+.is-hidden {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    transition: 1.25s;
+    padding-bottom: 0;
+}
+
+.is-gx {
+    animation: is-gx 1.25s;
+}
+
+.grey {
+    color: grey;
+}
+
+.red {
+    color: red;
+}
+
+.yellow {
+    color: rgb(196, 196, 36);
+}
+
+.green {
+    color: rgb(72, 218, 72);
+}
+
+/* 
+    总的副框添加一个新的类名
+    功能是调用is-gx动画
+*/
+
+@keyframes is-gx {
+
+    0%,
+    10%,
+    100% {
+        width: 400px;
+    }
+
+    30%,
+    50% {
+        width: 450px;
+    }
+}
